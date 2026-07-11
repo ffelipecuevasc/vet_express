@@ -1,5 +1,11 @@
 // Importamos express y el enrutador
 import express from "express";
+import validator from 'validator'; // Librería para validaciones
+import dayjs from 'dayjs'; // Librería para fechas
+import 'dayjs/locale/es.js'; // Importamos el idioma español
+
+dayjs.locale('es'); // Configuramos dayjs globalmente en español
+
 const router = express.Router();
 
 // Configuración del enrutador (router) con el metodo HTPP Get (aunque existen Post, Put, Delete)
@@ -49,5 +55,39 @@ router.get('/contacto', (req, res, next) => {
 });
 
 // RUTA NUEVA: Configurar el POST
+// POST: PROCESAR CONSULTA (/enviar-consulta)
+// Captura los datos del formulario y redirige a la confirmación.
+router.post('/enviar-consulta', (req, res) => {
+  const { nombre, email, consulta } = req.body;
+
+  // 1. VALIDACIÓN: Verificamos si el email es real usando 'validator'
+  const esEmailValido = validator.isEmail(email);
+
+  if (!esEmailValido) {
+    // Si el email no es válido, lanzamos un error (o podrías redirigir con un mensaje)
+    return res.status(400).render('error', {
+      message: 'El correo electrónico ingresado no es válido.',
+      error: { status: 400, stack: 'Por favor, regresa e intenta con un email real.' },
+      nombreClinica: "VetCare Pro"
+    });
+  }
+
+  // 2. FECHAS: Generamos una fecha de recepción formateada con 'dayjs'
+  // Formato: "lunes, 20 de mayo de 2024"
+  const fechaRecepcion = dayjs().format('dddd, D [de] MMMM [de] YYYY');
+
+  const data = {
+    title: "Consulta Recibida | VetCare Pro",
+    nombreClinica: "VetCare Pro",
+    cliente: {
+      nombre: validator.escape(nombre), // Limpiamos el texto para evitar XSS
+      email,
+      consulta: validator.escape(consulta)
+    },
+    fecha: fechaRecepcion
+  };
+
+  res.render('confirmacion', data);
+});
 
 export default router;
