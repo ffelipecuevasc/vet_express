@@ -29,6 +29,9 @@ importers:
       morgan:
         specifier: ~1.9.1
         version: 1.9.1
+      nodemailer:
+        specifier: ^9.0.3
+        version: 9.0.3
       validator:
         specifier: ^13.15.35
         version: 13.15.35
@@ -177,6 +180,10 @@ packages:
   negotiator@0.6.3:
     resolution: {integrity: sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==}
     engines: {node: '>= 0.6'}
+
+  nodemailer@9.0.3:
+    resolution: {integrity: sha512-n+YP+NKwR5zRWa60k3GiQ6Q3B4KXCoAw40dAKeCtYn020iNN74aWK2liXIC3ZEATeGql7we3tE3t8QwhY0eskw==}
+    engines: {node: '>=6.0.0'}
 
   on-finished@2.3.0:
     resolution: {integrity: sha512-ikqdkGAAyf/X/gPhXGvfgAytDZtDbr+bkNUJ0N9h5MI/dmdgCs3l6hoHrcUv41sRKew3jIwrp4qQDXiK99Utww==}
@@ -412,6 +419,8 @@ snapshots:
   ms@2.0.0: {}
 
   negotiator@0.6.3: {}
+
+  nodemailer@9.0.3: {}
 
   on-finished@2.3.0:
     dependencies:
