@@ -7,7 +7,7 @@ import {registrarActividad} from "../helpers/logger.js";
 registrarActividad(`⚙️ SISTEMA: Cargando variables de entorno desde el archivo .env.`);
 
 const REQUIRED_ENV_VARS = [
-    'DB_HOTS',
+    'DB_HOST',
     'DB_PORT',
     'DB_USER',
     'DB_PASSWORD',
@@ -29,7 +29,7 @@ registrarActividad(`⚙️ SISTEMA: Todas las variables de entorno fueron valida
 
 export const config = {
     db: {
-        host: process.env.DB_HOTS,
+        host: process.env.DB_HOST,
         port: parseInt(process.env.DB_PORT, 10),
         user: process.env.DB_USER,
         password: process.env.DB_PASSWORD,

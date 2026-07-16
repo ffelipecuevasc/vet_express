@@ -6,6 +6,7 @@ import nodemailer from 'nodemailer';
 
 import {registrarActividad} from "../helpers/logger.js";
 import {config} from "../config/config.js";
+import {getDbClient} from "../helpers/database.js";
 
 dayjs.locale('es');
 
@@ -65,10 +66,12 @@ router.get('/contacto', (req, res, next) => {
  * Metodo Asincrónico para manejar la latencia de la red.
  */
 router.post('/enviar-consulta', async (req, res) => {
+  const conexion = getDbClient();
   try {
+    // 0. Acá extraemos los datos del formulario web que viajaron en el BODY de la request
     const { nombre, email, consulta } = req.body;
 
-    // 1. Validación con la dependencia 'validator'
+    // 1. Validación del email con la dependencia 'validator'
     if (!validator.isEmail(email)) {
       registrarActividad(`🌐❌ POST /enviar-consulta - RECHAZADO: Intento de formulario con email inválido (${email}).`);
       return res.status(400).render('error', {
@@ -77,6 +80,11 @@ router.post('/enviar-consulta', async (req, res) => {
         nombreClinica: 'VetCare Pro'
       });
     }
+
+    // 1.1 Abrir la conexión a la base de datos (PASO CRÍTICO)
+    registrarActividad(`💾 BASE DE DATOS: Intentando conectar a PostgreSQL en ${config.db.host}:${config.db.port}.`);
+    await conexion.connect();
+    registrarActividad(`💾 BASE DE DATOS: Conexión a PostgreSQL establecida con éxito.`);
 
     registrarActividad(`🌐 POST /enviar-consulta - PROCESANDO: Iniciando envío de correo para ${email}...`);
 
@@ -109,8 +117,19 @@ router.post('/enviar-consulta', async (req, res) => {
 
     // 4. Envío del correo electrónico configurado de forma asincrónica | Dependendia 'nodemailer'
     await transporter.sendMail(mailOptions);
-
     registrarActividad(`🌐 POST /enviar-consulta - ÉXITO: Correo enviado correctamente desde ${email}.`);
+
+    // 4.1 Inserción de datos en la BD - PostgreSQL a través de una Consulta SQL Parametrizada
+    registrarActividad(`💾 BASE DE DATOS: Ejecutando un INSERT en la base de datos PostgreSQL.`);
+    const consultaSql = 'INSERT INTO consultas (nombre, email, consulta, fecha) VALUES ($1, $2, $3, $4)';
+    const valores = [
+        validator.escape(nombre),
+        email,
+        validator.escape(consulta),
+        dayjs().format('YYYY-MM-DD HH:mm:ss')
+    ];
+    await conexion.query(consultaSql, valores);
+    registrarActividad(`💾 BASE DE DATOS: Registro insertado exitosamente en PostgreSQL.`);
 
     // 5. Respuesta al cliente con una vista HTML
     res.render('confirmacion', {
@@ -120,12 +139,25 @@ router.post('/enviar-consulta', async (req, res) => {
     });
 
   } catch (error) {
+    let mensajeError = "❌ Error interno del servidor";
+    if (error.code === 'ECONNREFUSED') {
+      mensajeError = "💾❌ PostgreSQL no está en línea ¿Olvidaste encenderlo en Docker?";
+    }else if(error.code === '28P01'){
+      mensajeError = "💾❌ Falló en la autenticación de la BD. Verifica las variables de entorno.";
+    }else{
+      mensajeError = `❌ Error crítico: ${error.message}`;
+    }
+
     registrarActividad(`🌐❌ POST /enviar-consulta - ERROR CRÍTICO SMTP: ${error.message}`);
     res.status(500).render('error', {
       message: "No pudimos enviar tu mensaje en este momento.",
       error: { status: 500, stack: "Error de conexión SMTP: " + error.message },
       nombreClinica: 'VetCare Pro'
     });
+  } finally {
+    registrarActividad(`💾 BASE DE DATOS: Cerrando la conexión a PostgreSQL.`);
+    await conexion.end();
+    registrarActividad(`💾 BASE DE DATOS: Conexión a PostgreSQL cerrada de forma exitosa.`);
   }
 });
 

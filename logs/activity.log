@@ -1,0 +1,6 @@
+[2026-07-15 22:59:51] ⚙️ SISTEMA: Cargando variables de entorno desde el archivo .env.
+[2026-07-15 22:59:51] ❌ SISTEMA ERROR: Falta la variable de entorno obligatoria -> DB_HOTS
+[2026-07-15 23:01:33] ⚙️ SISTEMA: Cargando variables de entorno desde el archivo .env.
+[2026-07-15 23:01:33] ❌ SISTEMA ERROR: Falta la variable de entorno obligatoria -> DB_HOST
+[2026-07-15 23:03:31] ⚙️ SISTEMA: Cargando variables de entorno desde el archivo .env.
+[2026-07-15 23:03:31] ❌ SISTEMA ERROR: Falta la variable de entorno obligatoria -> DB_HOST
