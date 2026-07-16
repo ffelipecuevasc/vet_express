@@ -4,6 +4,8 @@ import {registrarActividad} from "../helpers/logger.js";
 // Inicializar dotenv: esto va a leer el archivo .env y lo inyectará en la memoria RAM
 // Crear una configuración DEFENSIVA: al más mínimo error se cae toda
 
+dotenv.config();
+
 registrarActividad(`⚙️ SISTEMA: Cargando variables de entorno desde el archivo .env.`);
 
 const REQUIRED_ENV_VARS = [
