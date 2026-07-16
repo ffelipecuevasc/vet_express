@@ -11,3 +11,6 @@ npm-debug.log*
 Thumbs.db
 Desktop.ini
 $RECYCLE.BIN/
+
+# Archivos de entorno
+.env
