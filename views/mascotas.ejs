@@ -1,0 +1,27 @@
+<!-- views/mascotas.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('partials/head') %>
+</head>
+<body class="flex flex-col min-h-screen">
+<%- include('partials/navbar') %>
+
+<main class="flex-grow">
+    <section class="section-container text-center pb-0">
+        <h1 class="text-4xl font-bold mb-4 text-teal-600">Mis Mascotas</h1>
+        <p class="text-slate-600 text-lg">
+            Bienvenido/a, <strong class="text-teal-700"><%= usuario.nombre %></strong>. Esta es una vista protegida de ejemplo.
+        </p>
+    </section>
+
+    <section class="section-container">
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 text-center text-slate-400 italic">
+            🐾 Acá vivirá el listado de tus mascotas registradas (CRUD pendiente de construir en una fase futura).
+        </div>
+    </section>
+</main>
+
+<%- include('partials/footer') %>
+</body>
+</html>

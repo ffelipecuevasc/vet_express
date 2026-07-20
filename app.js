@@ -4,10 +4,17 @@ import express from "express";
 import path from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
+import session from "express-session";
+import connectPgSimple from "connect-pg-simple";
 
 // Importación de archivos de ruteo (locales) según el éstandar ES6
 import indexRouter from "./routes/index.js";
 import usersRouter from "./routes/users.js";
+import autenticacionRouter from "./routes/autenticacion.js";
+
+// Importación de configuración y logger propios del proyecto
+import { config } from "./config/config.js";
+import { registrarActividad } from "./helpers/logger.js";
 
 // La creación del objeto que levanta el servidor
 // El servidor podría ser levantado únicamente con Node.js, pero ocupamos Express.js
@@ -24,9 +31,43 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(import.meta.dirname, 'public')));
 
+// --- INICIO: Configuración de sesión (express-session + connect-pg-simple) ---
+const PgSession = connectPgSimple(session);
+
+registrarActividad("⚙️ SISTEMA: Inicializando el middleware de sesión (express-session + PostgreSQL).");
+
+app.use(session({
+  store: new PgSession({
+    conObject: {
+      host: config.db.host,
+      port: config.db.port,
+      user: config.db.user,
+      password: config.db.password,
+      database: config.db.database,
+    },
+    tableName: 'session',       // debe coincidir con la tabla creada en el Paso 4.2
+    createTableIfMissing: false // ya la creamos manualmente vía DataGrip
+  }),
+  secret: config.session.secret,
+  resave: false,             // no reescribir la sesión si no hubo cambios
+  saveUninitialized: false,  // no crear una sesión vacía para visitantes anónimos
+  cookie: {
+    httpOnly: true,          // la cookie no es accesible desde JavaScript del navegador
+    maxAge: 1000 * 60 * 60 * 2 // 2 horas de duración de la sesión
+  }
+}));
+
+// Middleware "inyector": copia el usuario de la sesión a res.locals para TODAS las vistas
+app.use((req, res, next) => {
+  res.locals.usuario = req.session.usuario || null;
+  next();
+});
+// --- FIN: Configuración de sesión ---
+
 // Acá están las rutas configuradas y existentes de mi proyecto
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/autenticacion', autenticacionRouter);
 
 // Acá se configura el error más común en HTTP = 404 - No encontrado (not found)
 app.use((req, res, next) => {

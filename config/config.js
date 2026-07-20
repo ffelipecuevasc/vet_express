@@ -15,7 +15,8 @@ const REQUIRED_ENV_VARS = [
     'DB_PASSWORD',
     'DB_NAME',
     'EMAIL_USER',
-    'EMAIL_PASSWORD'
+    'EMAIL_PASSWORD',
+    'SESSION_SECRET'
 ];
 
 REQUIRED_ENV_VARS.forEach((envVar) => {
@@ -40,5 +41,8 @@ export const config = {
     email: {
         user: process.env.EMAIL_USER,
         password: process.env.EMAIL_PASSWORD,
+    },
+    session: {
+        secret: process.env.SESSION_SECRET,
     }
 };
