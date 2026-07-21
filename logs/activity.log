@@ -154,3 +154,56 @@
 [2026-07-21 00:03:25] 🌐 GET /mascotas - Acceso autorizado para ffelipecuevasc@gmail.com.}
 [2026-07-21 00:06:37] 💾 BASE DE DATOS: Generando una nueva conexión (Cliente) de PostgreSQL.
 [2026-07-21 00:06:37] 🌐 GET /mascotas - Acceso autorizado para ffelipecuevasc@gmail.com.}
+[2026-07-21 17:08:34] ⚙️ SISTEMA: Cargando variables de entorno desde el archivo .env.
+[2026-07-21 17:08:34] ⚙️ SISTEMA: Todas las variables de entorno fueron validadas con éxito.
+[2026-07-21 17:08:34] ⚙️ SISTEMA: Inicializando el middleware de sesión (express-session + PostgreSQL).
+[2026-07-21 17:09:17] 🌐 GET / - El usuario visitó la página de Inicio.
+[2026-07-21 17:09:23] 🌐 GET /autenticacion/login - El usuario visitó la página de Login.
+[2026-07-21 17:09:30] 💾 BASE DE DATOS: Generando una nueva conexión (Cliente) de PostgreSQL.
+[2026-07-21 17:09:30] 🔐 POST /autenticacion/login - ÉXITO: Sesión iniciada para ffelipecuevasc@gmail.com.
+[2026-07-21 17:09:30] 🌐 GET / - El usuario visitó la página de Inicio.
+[2026-07-21 17:09:34] 💾 BASE DE DATOS: Generando una nueva conexión (Cliente) de PostgreSQL.
+[2026-07-21 17:09:34] 🌐 GET /mascotas - Acceso autorizado para ffelipecuevasc@gmail.com.}
+[2026-07-21 17:09:38] 🐾 GET /mascotas/nueva - Formulario de creación solicitado por ffelipecuevasc@gmail.com.
+[2026-07-21 17:10:08] 💾 BASE DE DATOS: Generando una nueva conexión (Cliente) de PostgreSQL.
+[2026-07-21 17:10:08] 🐾 POST /mascotas/nueva - ÉXITO: Mascota "Cachupin" registrada por ffelipecuevasc@gmail.com.
+[2026-07-21 17:10:08] 💾 BASE DE DATOS: Generando una nueva conexión (Cliente) de PostgreSQL.
+[2026-07-21 17:10:08] 🌐 GET /mascotas - Acceso autorizado para ffelipecuevasc@gmail.com.}
+[2026-07-21 17:10:15] 💾 BASE DE DATOS: Generando una nueva conexión (Cliente) de PostgreSQL.
+[2026-07-21 17:10:15] 🐾 GET /mascotas/3/editar - Formulario de edición solicitado por ffelipecuevasc@gmail.com.
+[2026-07-21 17:10:23] 💾 BASE DE DATOS: Generando una nueva conexión (Cliente) de PostgreSQL.
+[2026-07-21 17:10:23] 🐾 POST /mascotas/3/editar - ÉXITO: Mascota actualizada por ffelipecuevasc@gmail.com.
+[2026-07-21 17:10:23] 💾 BASE DE DATOS: Generando una nueva conexión (Cliente) de PostgreSQL.
+[2026-07-21 17:10:23] 🌐 GET /mascotas - Acceso autorizado para ffelipecuevasc@gmail.com.}
+[2026-07-21 17:10:33] 💾 BASE DE DATOS: Generando una nueva conexión (Cliente) de PostgreSQL.
+[2026-07-21 17:10:33] 🐾 POST /mascotas/3/eliminar - ÉXITO: Mascota eliminada por ffelipecuevasc@gmail.com.
+[2026-07-21 17:10:33] 💾 BASE DE DATOS: Generando una nueva conexión (Cliente) de PostgreSQL.
+[2026-07-21 17:10:33] 🌐 GET /mascotas - Acceso autorizado para ffelipecuevasc@gmail.com.}
+[2026-07-21 17:10:37] 🔐 POST /autenticacion/logout - ÉXITO: Sesión cerrada para ffelipecuevasc@gmail.com.
+[2026-07-21 17:10:37] 🌐 GET / - El usuario visitó la página de Inicio.
+[2026-07-21 20:44:41] ⚙️ SISTEMA: Cargando variables de entorno desde el archivo .env.
+[2026-07-21 20:44:41] ⚙️ SISTEMA: Todas las variables de entorno fueron validadas con éxito.
+[2026-07-21 20:44:41] ⚙️ SISTEMA: Inicializando el middleware de sesión (express-session + PostgreSQL).
+[2026-07-21 20:44:46] 🌐 GET / - El usuario visitó la página de Inicio.
+[2026-07-21 20:44:50] 🌐 GET /autenticacion/login - El usuario visitó la página de Login.
+[2026-07-21 20:44:56] 💾 BASE DE DATOS: Generando una nueva conexión (Cliente) de PostgreSQL.
+[2026-07-21 20:44:56] 🔐 POST /autenticacion/login - ÉXITO: Sesión iniciada para ffelipecuevasc@gmail.com.
+[2026-07-21 20:44:56] 🌐 GET / - El usuario visitó la página de Inicio.
+[2026-07-21 20:44:58] 💾 BASE DE DATOS: Generando una nueva conexión (Cliente) de PostgreSQL.
+[2026-07-21 20:44:58] 🌐 GET /mascotas - Acceso autorizado para ffelipecuevasc@gmail.com.}
+[2026-07-21 20:45:09] 🐾 GET /mascotas/nueva - Formulario de creación solicitado por ffelipecuevasc@gmail.com.
+[2026-07-21 20:46:15] 💾 BASE DE DATOS: Generando una nueva conexión (Cliente) de PostgreSQL.
+[2026-07-21 20:46:15] 🌐 GET /mascotas - Acceso autorizado para ffelipecuevasc@gmail.com.}
+[2026-07-21 20:46:18] 💾 BASE DE DATOS: Generando una nueva conexión (Cliente) de PostgreSQL.
+[2026-07-21 20:46:18] 🐾 GET /mascotas/2/editar - Formulario de edición solicitado por ffelipecuevasc@gmail.com.
+[2026-07-21 20:46:42] 🐾 GET /mascotas/nueva - Formulario de creación solicitado por ffelipecuevasc@gmail.com.
+[2026-07-21 20:46:46] 💾 BASE DE DATOS: Generando una nueva conexión (Cliente) de PostgreSQL.
+[2026-07-21 20:46:47] 🐾 GET /mascotas/2/editar - Formulario de edición solicitado por ffelipecuevasc@gmail.com.
+[2026-07-21 20:46:54] 💾 BASE DE DATOS: Generando una nueva conexión (Cliente) de PostgreSQL.
+[2026-07-21 20:46:54] 🐾 POST /mascotas/2/editar - ÉXITO: Mascota actualizada por ffelipecuevasc@gmail.com.
+[2026-07-21 20:46:54] 💾 BASE DE DATOS: Generando una nueva conexión (Cliente) de PostgreSQL.
+[2026-07-21 20:46:54] 🌐 GET /mascotas - Acceso autorizado para ffelipecuevasc@gmail.com.}
+[2026-07-21 20:47:08] 💾 BASE DE DATOS: Generando una nueva conexión (Cliente) de PostgreSQL.
+[2026-07-21 20:47:08] 🐾 POST /mascotas/2/eliminar - ÉXITO: Mascota eliminada por ffelipecuevasc@gmail.com.
+[2026-07-21 20:47:08] 💾 BASE DE DATOS: Generando una nueva conexión (Cliente) de PostgreSQL.
+[2026-07-21 20:47:08] 🌐 GET /mascotas - Acceso autorizado para ffelipecuevasc@gmail.com.}
