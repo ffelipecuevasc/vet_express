@@ -7,7 +7,6 @@ import nodemailer from 'nodemailer';
 import {registrarActividad} from "../helpers/logger.js";
 import {config} from "../config/config.js";
 import {getDbClient} from "../helpers/database.js";
-import { estaAutenticado } from "../middlewares/auth.js";
 
 dayjs.locale('es');
 
@@ -62,10 +61,7 @@ router.get('/contacto', (req, res, next) => {
   res.render('contacto', data);
 });
 
-/**
- * POST: PROCESAR CONSULTA Y ENVIAR CORREO
- * Metodo Asincrónico para manejar la latencia de la red.
- */
+// RUTA QUE PROCESA EL FORMULARIO DE CONTACTO (/enviar-consulta)
 router.post('/enviar-consulta', async (req, res) => {
   const conexion = getDbClient();
   try {
@@ -160,15 +156,6 @@ router.post('/enviar-consulta', async (req, res) => {
     await conexion.end();
     registrarActividad(`💾 BASE DE DATOS: Conexión a PostgreSQL cerrada de forma exitosa.`);
   }
-});
-
-// RUTA TEMPORAL DE PRUEBA — reemplazar por routes/mascotas.js en la fase del CRUD
-router.get('/mascotas', estaAutenticado, (req, res) => {
-  registrarActividad(`🐾 GET /mascotas - Acceso autorizado para ${req.session.usuario.email}.`);
-  res.render('mascotas', {
-    title: 'Mis Mascotas | VetCare Pro',
-    nombreClinica: 'VetCare Pro'
-  });
 });
 
 export default router;
