@@ -103,3 +103,54 @@
 [2026-07-20 22:24:33] 💾 BASE DE DATOS: Generando una nueva conexión (Cliente) de PostgreSQL.
 [2026-07-20 22:24:33] 🔐 POST /autenticacion/login - ÉXITO: Sesión iniciada para ffelipecuevasc@gmail.com.
 [2026-07-20 22:24:33] 🌐 GET / - El usuario visitó la página de Inicio.
+[2026-07-20 22:59:30] ⚙️ SISTEMA: Cargando variables de entorno desde el archivo .env.
+[2026-07-20 22:59:30] ⚙️ SISTEMA: Todas las variables de entorno fueron validadas con éxito.
+[2026-07-20 22:59:30] ⚙️ SISTEMA: Inicializando el middleware de sesión (express-session + PostgreSQL).
+[2026-07-20 22:59:36] 🌐 GET / - El usuario visitó la página de Inicio.
+[2026-07-20 22:59:37] 🔐 POST /autenticacion/logout - ÉXITO: Sesión cerrada para ffelipecuevasc@gmail.com.
+[2026-07-20 22:59:38] 🌐 GET / - El usuario visitó la página de Inicio.
+[2026-07-20 22:59:40] 🌐 GET /autenticacion/login - El usuario visitó la página de Login.
+[2026-07-20 22:59:47] 💾 BASE DE DATOS: Generando una nueva conexión (Cliente) de PostgreSQL.
+[2026-07-20 22:59:47] 🔐 POST /autenticacion/login - ÉXITO: Sesión iniciada para ffelipecuevasc@gmail.com.
+[2026-07-20 22:59:47] 🌐 GET / - El usuario visitó la página de Inicio.
+[2026-07-20 22:59:49] 💾 BASE DE DATOS: Generando una nueva conexión (Cliente) de PostgreSQL.
+[2026-07-20 22:59:49] 🌐 GET /mascotas - Acceso autorizado para ffelipecuevasc@gmail.com.}
+[2026-07-20 22:59:49] ❌ GET /mascotas - Error Crítico: resultado is not defined
+[2026-07-20 23:00:24] ⚙️ SISTEMA: Cargando variables de entorno desde el archivo .env.
+[2026-07-20 23:00:24] ⚙️ SISTEMA: Todas las variables de entorno fueron validadas con éxito.
+[2026-07-20 23:00:24] ⚙️ SISTEMA: Inicializando el middleware de sesión (express-session + PostgreSQL).
+[2026-07-20 23:00:26] 🔐 POST /autenticacion/logout - ÉXITO: Sesión cerrada para ffelipecuevasc@gmail.com.
+[2026-07-20 23:00:26] 🌐 GET / - El usuario visitó la página de Inicio.
+[2026-07-20 23:00:28] 🌐 GET /autenticacion/login - El usuario visitó la página de Login.
+[2026-07-20 23:00:34] 💾 BASE DE DATOS: Generando una nueva conexión (Cliente) de PostgreSQL.
+[2026-07-20 23:00:34] 🔐 POST /autenticacion/login - ÉXITO: Sesión iniciada para ffelipecuevasc@gmail.com.
+[2026-07-20 23:00:34] 🌐 GET / - El usuario visitó la página de Inicio.
+[2026-07-20 23:00:40] 💾 BASE DE DATOS: Generando una nueva conexión (Cliente) de PostgreSQL.
+[2026-07-20 23:00:40] 🌐 GET /mascotas - Acceso autorizado para ffelipecuevasc@gmail.com.}
+[2026-07-20 23:00:43] 🔐 POST /autenticacion/logout - ÉXITO: Sesión cerrada para ffelipecuevasc@gmail.com.
+[2026-07-20 23:00:43] 🌐 GET / - El usuario visitó la página de Inicio.
+[2026-07-20 23:04:51] ⚙️ SISTEMA: Cargando variables de entorno desde el archivo .env.
+[2026-07-20 23:04:51] ⚙️ SISTEMA: Todas las variables de entorno fueron validadas con éxito.
+[2026-07-20 23:04:51] ⚙️ SISTEMA: Inicializando el middleware de sesión (express-session + PostgreSQL).
+[2026-07-20 23:04:57] 🌐 GET / - El usuario visitó la página de Inicio.
+[2026-07-20 23:04:59] 🌐 GET /autenticacion/login - El usuario visitó la página de Login.
+[2026-07-20 23:05:06] 💾 BASE DE DATOS: Generando una nueva conexión (Cliente) de PostgreSQL.
+[2026-07-20 23:05:06] 🔐 POST /autenticacion/login - ÉXITO: Sesión iniciada para ffelipecuevasc@gmail.com.
+[2026-07-20 23:05:06] 🌐 GET / - El usuario visitó la página de Inicio.
+[2026-07-20 23:05:07] 💾 BASE DE DATOS: Generando una nueva conexión (Cliente) de PostgreSQL.
+[2026-07-20 23:05:07] 🌐 GET /mascotas - Acceso autorizado para ffelipecuevasc@gmail.com.}
+[2026-07-20 23:05:10] 🔐 POST /autenticacion/logout - ÉXITO: Sesión cerrada para ffelipecuevasc@gmail.com.
+[2026-07-20 23:05:10] 🌐 GET / - El usuario visitó la página de Inicio.
+[2026-07-21 00:02:55] ⚙️ SISTEMA: Cargando variables de entorno desde el archivo .env.
+[2026-07-21 00:02:55] ⚙️ SISTEMA: Todas las variables de entorno fueron validadas con éxito.
+[2026-07-21 00:02:55] ⚙️ SISTEMA: Inicializando el middleware de sesión (express-session + PostgreSQL).
+[2026-07-21 00:03:04] 🌐 GET / - El usuario visitó la página de Inicio.
+[2026-07-21 00:03:14] 🌐 GET /autenticacion/login - El usuario visitó la página de Login.
+[2026-07-21 00:03:21] 💾 BASE DE DATOS: Generando una nueva conexión (Cliente) de PostgreSQL.
+[2026-07-21 00:03:21] 🔐 POST /autenticacion/login - ÉXITO: Sesión iniciada para ffelipecuevasc@gmail.com.
+[2026-07-21 00:03:21] 🌐 GET / - El usuario visitó la página de Inicio.
+[2026-07-21 00:03:24] 🌐 GET / - El usuario visitó la página de Inicio.
+[2026-07-21 00:03:25] 💾 BASE DE DATOS: Generando una nueva conexión (Cliente) de PostgreSQL.
+[2026-07-21 00:03:25] 🌐 GET /mascotas - Acceso autorizado para ffelipecuevasc@gmail.com.}
+[2026-07-21 00:06:37] 💾 BASE DE DATOS: Generando una nueva conexión (Cliente) de PostgreSQL.
+[2026-07-21 00:06:37] 🌐 GET /mascotas - Acceso autorizado para ffelipecuevasc@gmail.com.}

@@ -25,7 +25,17 @@ router.get('/', async (req, res) => {
         const consultaSQL = `SELECT * FROM mascotas ORDER BY id DESC;`;
         const resultadoSQL = await conexion.query(consultaSQL);
 
-        const listaMascotas = resultadoSQL.rows.map();
+        const listaMascotas = resultadoSQL.rows.map((mascota) => ({
+            // Esto ahora es un diccionario
+            id: mascota.id,
+            nombre: mascota.nombre,
+            especie: mascota.especie,
+            raza: mascota.raza,
+            edad: mascota.edad,
+            sexo: mascota.sexo,
+            fechaIngreso: mascota.fecha_ingreso,
+            fechaIngresoFormateada: dayjs(mascota.fecha_ingreso).format('DD/MM/YYYY')
+        }));
 
         res.render('mascotas', {
             title: 'Mis Mascotas | VetCare Pro',
