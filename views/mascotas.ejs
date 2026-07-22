@@ -63,12 +63,12 @@
                             <td class="px-6 py-4 text-slate-600"><%= mascota.fechaIngresoFormateada %></td>
                             <td class="px-6 py-4 text-right whitespace-nowrap">
                                 <div class="flex items-center justify-end gap-3">
-                                    <!-- FASE 5: editar es un <a> — navegar no cambia estado -->
+                                    <!-- Editar es un <a> — navegar no cambia estado -->
                                     <a href="/mascotas/<%= mascota.id %>/editar"
                                        class="text-teal-600 hover:text-teal-800 transition"
                                        title="Editar mascota">✏️</a>
 
-                                    <!-- FASE 6: eliminar es un <form method="POST"> propio de
+                                    <!-- Eliminar es un <form method="POST"> propio de
                                          cada fila — mismo patrón que "Cerrar sesión" del navbar —
                                          porque SÍ cambia el estado del sistema, y de forma
                                          irreversible. El diálogo confirm() del navegador evita
