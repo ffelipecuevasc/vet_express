@@ -117,6 +117,10 @@ router.post('/crear', async (req, res) => {
         // Realizamos la conexión a PostgreSQL
         await conexion.connect();
 
+        // Abrimos la transacción explícita apenas existe la conexión
+        await conexion.query('BEGIN');
+        registrarActividad(`💾 BASE DE DATOS: Transacción iniciada (BEGIN).`);
+
         // Preparamos la sentencia SQL para realizar el INSERT a la BD
         // Acá realizamos un INSERT parametrizado: evita la vulnerabilidad de inyecciones SQL
         const insertSQL = `INSERT INTO mascotas (nombre, especie, raza, edad, sexo) VALUES ($1, $2, $3, $4, $5);`;
@@ -133,10 +137,17 @@ router.post('/crear', async (req, res) => {
         // Ahora inyectamos la variables reales al INSERT parametrizado
         await conexion.query(insertSQL, valores);
 
+        // Confirmamos la transacción — recién acá el INSERT es permanente
+        await conexion.query('COMMIT');
+        registrarActividad(`💾 BASE DE DATOS: Transacción confirmada (COMMIT).`);
+
         registrarActividad(`🌐 POST /mascotas/crear - ÉXITO: Mascota ${nombre} registrada exitosamente en la BD (${req.session.usuario.email}).`);
 
         res.redirect('/mascotas');
     } catch (error) {
+        await conexion.query('ROLLBACK');
+        registrarActividad(`💾 BASE DE DATOS: Transacción revertida (ROLLBACK) por error: ${error.message}`);
+
         registrarActividad(`❌ POST /mascotas/crear - Error Crítico: ${error.message}`);
         res.status(500).render('error',{
             message: 'No pudimos registrar la mascota en la BD en este momento.',
@@ -255,6 +266,9 @@ router.post('/:id/editar', async (req, res) => {
 
         await conexion.connect();
 
+        await conexion.query('BEGIN');
+        registrarActividad(`💾 BASE DE DATOS: Transacción iniciada (BEGIN).`);
+
         const updateSQL = `UPDATE mascotas SET nombre = $1, especie = $2, raza = $3, edad = $4, sexo = $5 WHERE id = $6;`;
 
         const valores = [
@@ -269,6 +283,9 @@ router.post('/:id/editar', async (req, res) => {
         const resultado = await conexion.query(updateSQL, valores);
 
         if (resultado.rowCount === 0) {
+            await conexion.query('ROLLBACK');
+            registrarActividad(`💾 BASE DE DATOS: Transacción revertida (ROLLBACK) — 0 filas afectadas.`);
+
             registrarActividad(`🌐❌ POST /mascotas/id/editar - ERROR: Mascota inexistente (${req.session.usuario.email}).`);
             return res.status(400).render('error', {
                 message: 'La mascota con ese identificador no existe.',
@@ -277,10 +294,16 @@ router.post('/:id/editar', async (req, res) => {
             });
         }
 
+        await conexion.query('COMMIT');
+        registrarActividad(`💾 BASE DE DATOS: Transacción confirmada (COMMIT).`);
+
         registrarActividad(`🌐 POST /mascotas/id/editar - ÉXITO: Mascota ${nombre} editada exitosamente en la BD (${req.session.usuario.email}).`);
         res.redirect('/mascotas');
 
     } catch (error) {
+        await conexion.query('ROLLBACK');
+        registrarActividad(`💾 BASE DE DATOS: Transacción revertida (ROLLBACK) por error: ${error.message}`);
+
         registrarActividad(`❌ POST /mascotas/id/editar - Error Crítico: ${error.message}`);
         res.status(500).render('error',{
             message: 'No pudimos editar la mascota en la BD en este momento.',
@@ -315,10 +338,16 @@ router.post('/:id/eliminar', async (req, res) => {
 
         await conexion.connect();
 
+        await conexion.query('BEGIN');
+        registrarActividad(`💾 BASE DE DATOS: Transacción iniciada (BEGIN).`);
+
         const deleteSQL = `DELETE FROM mascotas WHERE id = $1;`;
         const resultado = await conexion.query(deleteSQL, [id]);
 
         if (resultado.rowCount === 0) {
+            await conexion.query('ROLLBACK');
+            registrarActividad(`💾 BASE DE DATOS: Transacción revertida (ROLLBACK) — 0 filas afectadas.`);
+
             registrarActividad(`🌐❌ POST /mascotas/id/eliminar - ERROR: Mascota inexistente (${req.session.usuario.email}).`);
             return res.status(400).render('error', {
                 message: 'La mascota con ese identificador no existe.',
@@ -327,10 +356,16 @@ router.post('/:id/eliminar', async (req, res) => {
             });
         }
 
+        await conexion.query('COMMIT');
+        registrarActividad(`💾 BASE DE DATOS: Transacción confirmada (COMMIT).`);
+
         registrarActividad(`🌐 POST /mascotas/id/eliminar - ÉXITO: Mascota eliminada exitosamente de la BD (${req.session.usuario.email}).`);
         res.redirect('/mascotas');
 
     } catch (error) {
+        await conexion.query('ROLLBACK');
+        registrarActividad(`💾 BASE DE DATOS: Transacción revertida (ROLLBACK) por error: ${error.message}`);
+
         registrarActividad(`❌ POST /mascotas/id/eliminar - Error Crítico: ${error.message}`);
         res.status(500).render('error',{
             message: 'No pudimos eliminar la mascota de la BD en este momento.',

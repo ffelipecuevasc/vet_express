@@ -83,6 +83,9 @@ router.post('/enviar-consulta', async (req, res) => {
     await conexion.connect();
     registrarActividad(`💾 BASE DE DATOS: Conexión a PostgreSQL establecida con éxito.`);
 
+    await conexion.query('BEGIN');
+    registrarActividad(`💾 BASE DE DATOS: Transacción iniciada (BEGIN).`);
+
     registrarActividad(`🌐 POST /enviar-consulta - PROCESANDO: Iniciando envío de correo para ${email}...`);
 
     // 2. Configuración del transporte | Dependendia 'nodemailer'
@@ -128,6 +131,9 @@ router.post('/enviar-consulta', async (req, res) => {
     await conexion.query(consultaSql, valores);
     registrarActividad(`💾 BASE DE DATOS: Registro insertado exitosamente en PostgreSQL.`);
 
+    await conexion.query('COMMIT');
+    registrarActividad(`💾 BASE DE DATOS: Transacción confirmada (COMMIT).`);
+
     // 5. Respuesta al cliente con una vista HTML
     res.render('confirmacion', {
       title: 'Mensaje Enviado',
@@ -136,6 +142,9 @@ router.post('/enviar-consulta', async (req, res) => {
     });
 
   } catch (error) {
+    await conexion.query('ROLLBACK');
+    registrarActividad(`💾 BASE DE DATOS: Transacción revertida (ROLLBACK) por error: ${error.message}`);
+
     let mensajeError = "❌ Error interno del servidor";
     if (error.code === 'ECONNREFUSED') {
       mensajeError = "💾❌ PostgreSQL no está en línea ¿Olvidaste encenderlo en Docker?";
