@@ -301,3 +301,65 @@
 [2026-07-21 23:14:39] 🌐 POST /mascotas/id/eliminar - ÉXITO: Mascota eliminada exitosamente de la BD (ffelipecuevasc@gmail.com).
 [2026-07-21 23:14:39] 💾 BASE DE DATOS: Generando una nueva conexión (Cliente) de PostgreSQL.
 [2026-07-21 23:14:39] 🌐 GET /mascotas - Acceso autorizado para ffelipecuevasc@gmail.com.}
+[2026-07-22 23:36:44] ⚙️ SISTEMA: Cargando variables de entorno desde el archivo .env.
+[2026-07-22 23:36:44] ⚙️ SISTEMA: Todas las variables de entorno fueron validadas con éxito.
+[2026-07-22 23:36:44] 💾 BASE DE DATOS (Sequelize): Intentando establecer conexión con PostgreSQL...
+[2026-07-22 23:36:44] ⚙️ SISTEMA: Inicializando el middleware de sesión (express-session + PostgreSQL).
+[2026-07-22 23:36:44] 💾 BASE DE DATOS (ORM Sequelize): Verificando conexión con PostgreSQL...
+[2026-07-22 23:36:44] 💾 SQL (ORM Sequelize) [2ms]: Executed (default): SELECT 1+1 AS result
+[2026-07-22 23:36:44] 💾 BASE DE DATOS (ORM Sequelize): Conexión establecida con éxito a PostgreSQL.
+[2026-07-22 23:36:48] 🌐 GET / - El usuario visitó la página de Inicio.
+[2026-07-22 23:36:52] 🌐 GET /autenticacion/login - El usuario visitó la página de Login.
+[2026-07-22 23:37:07] 💾 BASE DE DATOS: Generando una nueva conexión (Cliente) de PostgreSQL.
+[2026-07-22 23:37:07] 🔐 POST /autenticacion/login - ÉXITO: Sesión iniciada para ffelipecuevasc@gmail.com.
+[2026-07-22 23:37:07] 🌐 GET / - El usuario visitó la página de Inicio.
+[2026-07-22 23:37:09] 👤 GET /duenos - Acceso autorizado para ffelipecuevasc@gmail.com.
+[2026-07-22 23:37:09] 💾 SQL (ORM Sequelize) [4ms]: Executed (default): SELECT "id", "nombre", "email", "telefono", "direccion", "fecha_registro" AS "fechaRegistro" FROM "duenos" AS "Dueno" ORDER BY "Dueno"."id" DESC;
+[2026-07-22 23:37:11] 👤 GET /duenos/crear - Acceso autorizado para ffelipecuevasc@gmail.com.
+[2026-07-22 23:37:16] 💾 SQL (ORM Sequelize) [5ms]: Executed (default): INSERT INTO "duenos" ("id","nombre","email","telefono","direccion","fecha_registro") VALUES (DEFAULT,$1,$2,$3,$4,CURRENT_DATE) RETURNING "id","nombre","email","telefono","direccion","fecha_registro";
+[2026-07-22 23:37:16] 👤 POST /duenos/crear - ÉXITO: Dueño Felipe registrado exitosamente (ffelipecuevasc@gmail.com).
+[2026-07-22 23:37:16] 👤 GET /duenos - Acceso autorizado para ffelipecuevasc@gmail.com.
+[2026-07-22 23:37:16] 💾 SQL (ORM Sequelize) [2ms]: Executed (default): SELECT "id", "nombre", "email", "telefono", "direccion", "fecha_registro" AS "fechaRegistro" FROM "duenos" AS "Dueno" ORDER BY "Dueno"."id" DESC;
+[2026-07-22 23:37:19] 💾 SQL (ORM Sequelize) [2ms]: Executed (default): SELECT "id", "nombre", "email", "telefono", "direccion", "fecha_registro" AS "fechaRegistro" FROM "duenos" AS "Dueno" WHERE "Dueno"."id" = 2;
+[2026-07-22 23:37:19] 💾 SQL (ORM Sequelize) [4ms]: Executed (default): DELETE FROM "duenos" WHERE "id" = 2
+[2026-07-22 23:37:19] 👤 POST /duenos/id/eliminar - ÉXITO: Dueño #2 eliminado exitosamente (ffelipecuevasc@gmail.com).
+[2026-07-22 23:37:19] 👤 GET /duenos - Acceso autorizado para ffelipecuevasc@gmail.com.
+[2026-07-22 23:37:19] 💾 SQL (ORM Sequelize) [3ms]: Executed (default): SELECT "id", "nombre", "email", "telefono", "direccion", "fecha_registro" AS "fechaRegistro" FROM "duenos" AS "Dueno" ORDER BY "Dueno"."id" DESC;
+[2026-07-22 23:37:21] 🔐 POST /autenticacion/logout - ÉXITO: Sesión cerrada para ffelipecuevasc@gmail.com.
+[2026-07-22 23:37:21] 🌐 GET / - El usuario visitó la página de Inicio.
+[2026-07-22 23:40:24] ⚙️ SISTEMA: Cargando variables de entorno desde el archivo .env.
+[2026-07-22 23:40:24] ⚙️ SISTEMA: Todas las variables de entorno fueron validadas con éxito.
+[2026-07-22 23:40:25] 💾 BASE DE DATOS (Sequelize): Intentando establecer conexión con PostgreSQL...
+[2026-07-22 23:40:25] ⚙️ SISTEMA: Inicializando el middleware de sesión (express-session + PostgreSQL).
+[2026-07-22 23:40:25] 💾 BASE DE DATOS (ORM Sequelize): Verificando conexión con PostgreSQL...
+[2026-07-22 23:40:25] 💾 SQL (ORM Sequelize) [1ms]: Executed (default): SELECT 1+1 AS result
+[2026-07-22 23:40:25] 💾 BASE DE DATOS (ORM Sequelize): Conexión establecida con éxito a PostgreSQL.
+[2026-07-22 23:40:35] 🌐 GET / - El usuario visitó la página de Inicio.
+[2026-07-22 23:40:39] 🌐 GET /autenticacion/login - El usuario visitó la página de Login.
+[2026-07-22 23:40:47] 💾 BASE DE DATOS: Generando una nueva conexión (Cliente) de PostgreSQL.
+[2026-07-22 23:40:48] 🔐 POST /autenticacion/login - ÉXITO: Sesión iniciada para ffelipecuevasc@gmail.com.
+[2026-07-22 23:40:48] 🌐 GET / - El usuario visitó la página de Inicio.
+[2026-07-22 23:40:58] 👤 GET /duenos - Acceso autorizado para ffelipecuevasc@gmail.com.
+[2026-07-22 23:40:58] 💾 SQL (ORM Sequelize) [5ms]: Executed (default): SELECT "id", "nombre", "email", "telefono", "direccion", "fecha_registro" AS "fechaRegistro" FROM "duenos" AS "Dueno" ORDER BY "Dueno"."id" DESC;
+[2026-07-22 23:41:12] 👤 GET /duenos/crear - Acceso autorizado para ffelipecuevasc@gmail.com.
+[2026-07-22 23:41:38] 💾 SQL (ORM Sequelize) [21ms]: Executed (default): INSERT INTO "duenos" ("id","nombre","email","telefono","direccion","fecha_registro") VALUES (DEFAULT,$1,$2,$3,$4,CURRENT_DATE) RETURNING "id","nombre","email","telefono","direccion","fecha_registro";
+[2026-07-22 23:41:38] 👤 POST /duenos/crear - ÉXITO: Dueño Chuck registrado exitosamente (ffelipecuevasc@gmail.com).
+[2026-07-22 23:41:38] 👤 GET /duenos - Acceso autorizado para ffelipecuevasc@gmail.com.
+[2026-07-22 23:41:38] 💾 SQL (ORM Sequelize) [3ms]: Executed (default): SELECT "id", "nombre", "email", "telefono", "direccion", "fecha_registro" AS "fechaRegistro" FROM "duenos" AS "Dueno" ORDER BY "Dueno"."id" DESC;
+[2026-07-22 23:41:56] 💾 SQL (ORM Sequelize) [4ms]: Executed (default): SELECT "id", "nombre", "email", "telefono", "direccion", "fecha_registro" AS "fechaRegistro" FROM "duenos" AS "Dueno" WHERE "Dueno"."id" = 3;
+[2026-07-22 23:41:56] 👤 GET /duenos/id/editar - Formulario de edición de dueño solicitado y en proceso de carga (ffelipecuevasc@gmail.com).
+[2026-07-22 23:42:09] 💾 SQL (ORM Sequelize) [11ms]: Executed (default): SELECT "id", "nombre", "email", "telefono", "direccion", "fecha_registro" AS "fechaRegistro" FROM "duenos" AS "Dueno" WHERE "Dueno"."id" = 3;
+[2026-07-22 23:42:09] 💾 SQL (ORM Sequelize) [4ms]: Executed (default): UPDATE "duenos" SET "nombre"=$1 WHERE "id" = $2
+[2026-07-22 23:42:09] 👤 POST /duenos/id/editar - ÉXITO: Dueño #3 actualizado exitosamente (ffelipecuevasc@gmail.com).
+[2026-07-22 23:42:09] 👤 GET /duenos - Acceso autorizado para ffelipecuevasc@gmail.com.
+[2026-07-22 23:42:09] 💾 SQL (ORM Sequelize) [3ms]: Executed (default): SELECT "id", "nombre", "email", "telefono", "direccion", "fecha_registro" AS "fechaRegistro" FROM "duenos" AS "Dueno" ORDER BY "Dueno"."id" DESC;
+[2026-07-22 23:42:16] 👤 GET /duenos/crear - Acceso autorizado para ffelipecuevasc@gmail.com.
+[2026-07-22 23:42:40] 💾 SQL (ORM Sequelize) [6ms]: Executed (default): INSERT INTO "duenos" ("id","nombre","email","telefono","direccion","fecha_registro") VALUES (DEFAULT,$1,$2,$3,$4,CURRENT_DATE) RETURNING "id","nombre","email","telefono","direccion","fecha_registro";
+[2026-07-22 23:42:40] 👤 POST /duenos/crear - ÉXITO: Dueño Steven Seagal registrado exitosamente (ffelipecuevasc@gmail.com).
+[2026-07-22 23:42:40] 👤 GET /duenos - Acceso autorizado para ffelipecuevasc@gmail.com.
+[2026-07-22 23:42:40] 💾 SQL (ORM Sequelize) [10ms]: Executed (default): SELECT "id", "nombre", "email", "telefono", "direccion", "fecha_registro" AS "fechaRegistro" FROM "duenos" AS "Dueno" ORDER BY "Dueno"."id" DESC;
+[2026-07-22 23:42:48] 💾 SQL (ORM Sequelize) [2ms]: Executed (default): SELECT "id", "nombre", "email", "telefono", "direccion", "fecha_registro" AS "fechaRegistro" FROM "duenos" AS "Dueno" WHERE "Dueno"."id" = 4;
+[2026-07-22 23:42:48] 💾 SQL (ORM Sequelize) [8ms]: Executed (default): DELETE FROM "duenos" WHERE "id" = 4
+[2026-07-22 23:42:48] 👤 POST /duenos/id/eliminar - ÉXITO: Dueño #4 eliminado exitosamente (ffelipecuevasc@gmail.com).
+[2026-07-22 23:42:48] 👤 GET /duenos - Acceso autorizado para ffelipecuevasc@gmail.com.
+[2026-07-22 23:42:48] 💾 SQL (ORM Sequelize) [5ms]: Executed (default): SELECT "id", "nombre", "email", "telefono", "direccion", "fecha_registro" AS "fechaRegistro" FROM "duenos" AS "Dueno" ORDER BY "Dueno"."id" DESC;
